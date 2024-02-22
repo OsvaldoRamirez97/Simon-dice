@@ -33,7 +33,7 @@ function comenzarJuego() {
 function reinicio() {
   arrSimon = [];
   arrJugador = [];
-  ronda = [];
+  ronda = 0;
   puntajeInicial = 0;
   manejarRonda();
 }
@@ -43,25 +43,25 @@ function reinicio() {
 function manejarRonda() {
   bloquearInputUsuario();
   actualizarEstado("Turno de Simón");
-
+  puntaje(0);
   const color = elegirUnColor();
   arrSimon.push(color);
 
-  const TIEMPO_DE_ESPERA = (arrSimon.length + 1) * 500;
+  let tiempoDeEspera = (arrSimon.length + 1) * 1000;
 
   
-  arrSimon.forEach(function (color, index) {
-    const RESTRASO_DE_CAMBIO = (index + 1) * 500;
-  
+  arrSimon.forEach((color, index) => {
+    let delay = (index + 1) * 1000;
     setTimeout(() => {
       resaltarColor(color);
-    }, RESTRASO_DE_CAMBIO);
+    }, delay);
   });
 
-  setTimeout(function () {
+  setTimeout( () => {
     actualizarEstado("Turno del jugador");
     desbloquearInputUsuario();
-  }, TIEMPO_DE_ESPERA);
+  }, tiempoDeEspera);
+
   arrJugador = [];
   ronda++;
   contador(ronda);
@@ -125,18 +125,13 @@ function actualizarEstado(estado, error = false) {
 //Desbloquear clicks 
 
 function desbloquearInputUsuario() {
-  document.querySelectorAll('.cuadro').forEach(function(cuadro) {
-    cuadro.onclick = movimientoJugador;
-  });
+  cuadros.forEach((cuadro) => cuadro.onclick = movimientoJugador);
 }
 
 //Bloquear clicks
 
 function bloquearInputUsuario() {
-  document.querySelectorAll('.cuadro').forEach(function(cuadro) {
-    cuadro.onclick = function() {
-    };
-  });
+  cuadros.forEach((cuadro) => cuadro.onclick = null );
 }
 
 //Perder
