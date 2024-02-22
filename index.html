@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/index.css">
+    <title>Simón dice</title>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row m-4">
+        <div class="col-8">
+          <div class="alert alert-primary" role="alert" id="estadoDelJuego">
+             
+          </div>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-primary" type="button" onclick="comenzarJuego()">Empezar</button>
+        </div>
+        <div class="col-sm-6">
+          <p>Ronda # <span class="text-info" id="ronda">0</span></p>
+        </div>
+        <div class="col-sm-6">
+          <p>Puntaje: <span class="text-info" id="puntaje">0</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="tablero" class="tablero">
+        <div class="row m-4">
+          <div class="col-sm">
+            <div class="cuadro rounded bg-primary" id="cuadro-1"></div>
+          </div>
+          <div class="col-sm">
+            <div class="cuadro rounded bg-danger" id="cuadro-2"></div>
+          </div>
+        </div>
+        <div class="row m-4">
+          <div class="col-sm">
+            <div class="cuadro rounded bg-success" id="cuadro-3"></div>
+          </div>
+          <div class="col-sm">
+            <div class="cuadro rounded bg-warning" id="cuadro-4"></div>
+          </div>
+        </div>
+      </div>
+      <script src="js/index.js"></script>
+  </body>
+</html>

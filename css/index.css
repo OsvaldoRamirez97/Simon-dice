@@ -1,0 +1,11 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.cuadro{
+    height: 30vh;
+    opacity: 0.5;
+    transition: oppacity .5s;
+}
