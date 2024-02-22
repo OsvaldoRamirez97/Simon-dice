@@ -43,15 +43,15 @@ function reinicio() {
 function manejarRonda() {
   bloquearInputUsuario();
   actualizarEstado("Turno de Simón");
-
+  puntaje(0);
   const color = elegirUnColor();
   arrSimon.push(color);
 
-  const TIEMPO_DE_ESPERA = (arrSimon.length + 1) * 500;
+  const TIEMPO_DE_ESPERA = (arrSimon.length + 1) * 1000;
 
   
   arrSimon.forEach(function (color, index) {
-    const RESTRASO_DE_CAMBIO = (index + 1) * 500;
+    const RESTRASO_DE_CAMBIO = (index + 1) * 1000;
   
     setTimeout(() => {
       resaltarColor(color);
