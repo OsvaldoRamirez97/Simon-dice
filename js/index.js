@@ -45,7 +45,12 @@ function manejarRonda() {
   actualizarEstado("Turno de Simón");
   puntaje(0);
   const color = elegirUnColor();
-  arrSimon.push(color);  
+  arrSimon.push(color);
+
+  let tiempoDeEspera = (arrSimon.length + 1) * 1000;
+
+  arrSimon.forEach((color, index) => {
+    let delay = (index + 1) * 1000;
     setTimeout(() => {
       resaltarColor(color);
     }, delay);
